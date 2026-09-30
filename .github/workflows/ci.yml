@@ -11,5 +11,18 @@ jobs:
       - name: System Info
         run: uname -v
       - name: create file
-        run: mkdir myfolder 
-        
+        run: |
+          mkdir myfolder
+          sleep 10
+  job2:
+    name: job2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting message
+        run: echo "Here's my first Actions"
+      - name: running multiple commands
+        run: |
+          mkdir player
+          pwd
+          echo "Today's date is $(date)"
+          sleep 5
