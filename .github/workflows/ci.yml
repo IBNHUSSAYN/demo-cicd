@@ -26,3 +26,24 @@ jobs:
           pwd
           echo "Today's date is $(date)"
           sleep 5
+
+  job3:
+    name: job3
+    needs: job2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hostname
+      - run: |
+          echo {1..10}
+          sleep 10
+  job4:
+    name: job4
+    needs: [job1,job2,job3]
+    runs-on: ubuntu-latest
+    steps:
+      - name: check docker
+      - run: |
+          command -v docker
+          command -v terraform
+          echo "End of the script"
+          sleep 5
