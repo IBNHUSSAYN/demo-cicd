@@ -10,3 +10,7 @@ jobs:
         run: echo "Goodevening"
       - name: System Info
         run: uname -v
+      - name: create file
+        run: mkdir myfolder
+        run: touch myfolder/new.txt
+        
