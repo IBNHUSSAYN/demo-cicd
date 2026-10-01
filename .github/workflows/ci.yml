@@ -1,6 +1,10 @@
 name: CI
 #Get trigger whenever changes is commited
-on: push
+on: 
+  #Schedule is like a cron job
+  schedule:
+    #this cron job run every minute of pushing
+    - cron: "*/5 * * * *"
 jobs:
   job1:
     name: job1
