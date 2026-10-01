@@ -28,7 +28,7 @@ jobs: #Job declaration
         uses: actions/upload-artifact@v7
         with:
           name: Directory_artifact
-          path: demo/
+          path: demo/list.txt
     
   job2: #first job ID
     name: JOB2 #name of first job
