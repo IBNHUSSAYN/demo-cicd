@@ -37,8 +37,7 @@ jobs: #Job declaration
       - name: checking current directory
         run: |
           pwd
-          ip -a
-          command -v docker
+          ls -ltr
       - name: downloading artifacts
         uses: actions/download-artifact@v7
         with:
