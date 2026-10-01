@@ -32,6 +32,7 @@ jobs: #Job declaration
     
   job2: #first job ID
     name: JOB2 #name of first job
+    needs: job1
     runs-on: ubuntu-22.04 #Set the machine environment to ubuntu-22.04
     steps: #declare set of commands to run sequencially
       - name: checking current directory
