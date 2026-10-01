@@ -4,7 +4,11 @@ on:
   #Schedule is like a cron job
   schedule:
     #this cron job run every minute of pushing
-    - cron: "*/5 * * * *"
+    - cron: "5 * * * *"
+  #manual trigger is added using workflow_dispatch push
+  workflow_dispatch:
+  push:
+    
 jobs:
   job1:
     name: job1
