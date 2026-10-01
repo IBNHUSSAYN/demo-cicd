@@ -5,9 +5,17 @@ jobs:
     name: Checkout
     runs-on: ubuntu-22.04
     steps:
-      - name: first steps
-        run: echo "Good Evening DevOps"
-      - name: Demo checkout
+      - name: step 1
+        run: |
+          echo "Good Evening DevOps"
+          pwd
+          hostname
+          ls -la
+      - name: step 2
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
+      - name: Step 3 
+        run: |
+          pwd
+          hostname
+          ls -la
+          
