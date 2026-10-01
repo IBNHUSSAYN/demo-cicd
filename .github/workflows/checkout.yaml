@@ -39,11 +39,28 @@ jobs: #Job declaration
         run: |
           pwd
           ls -ltr
-      - name: downloading artifacts
+      - name: downloading single file artifacts
         uses: actions/download-artifact@v7
         with:
-          name: Directory_artifact
+          name: single_file
       - name: checking current directory to confirm the existing of single_file
         run: |
           pwd
           ls -ltr
+  job3: #first job ID
+      name: JOB3 #name of first job
+      needs: job1
+      runs-on: ubuntu-22.04 #Set the machine environment to ubuntu-22.04
+      steps: #declare set of commands to run sequencially
+        - name: checking current directory
+          run: |
+            pwd
+            ls -ltr
+        - name: downloading directory artifacts
+          uses: actions/download-artifact@v7
+          with:
+            name: Directory_artifact
+        - name: checking current directory to confirm the existing of downloaded directory artifacts
+          run: |
+            pwd
+            ls -ltr
