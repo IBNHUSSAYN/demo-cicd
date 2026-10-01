@@ -41,7 +41,7 @@ jobs: #Job declaration
       - name: downloading artifacts
         uses: actions/download-artifact@v7
         with:
-          name: single_file
+          name: Directory_artifact
       - name: checking current directory to confirm the existing of single_file
         run: |
           pwd
