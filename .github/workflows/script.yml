@@ -1,5 +1,5 @@
 name: LEARNING GITHUB ACTION
-on: push
+on: workflow_dispatch
 jobs:
   job1:
     name: Run script
