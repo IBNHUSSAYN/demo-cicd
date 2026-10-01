@@ -1,11 +1,9 @@
 name: TESTING DEPLOYMENT
 on: push
 jobs:
-  build:
-    - name: Software to deployment stage
+  job1:
+    name: Software to deployment stage
     runs-on: macos-13
     steps:
-      - name: Stage 1
-        run: |
-              echo "Good Morning"
-              
+        - name: Stage 1
+          run: echo "Good Morning"
