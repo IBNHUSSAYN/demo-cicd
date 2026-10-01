@@ -7,7 +7,7 @@ jobs: #Job declaration
     steps: #declare set of commands to run sequencially
       - name: step 1 #name of first step 
         run: | #commands to run in step one
-          echo "Good Evening DevOps"
+          echo "Good Evening DevOps" 
           pwd 
           hostname
           ls -la
@@ -18,6 +18,7 @@ jobs: #Job declaration
           mkdir demo
           pwd >> demo/test.txt #redirecting output into a file test.txt for uploading
           hostname >> test.txt
+          echo "I am a mathematician, i love coding" >> demo/hubby.txt
           ls -la >> demo/list.txt
       - name: step 4
         uses: actions/upload-artifact@v7
@@ -28,7 +29,9 @@ jobs: #Job declaration
         uses: actions/upload-artifact@v7
         with:
           name: Directory_artifact
-          path: demo/list.txt
+          paths: |
+            demo/list.txt
+            demo/hubby.txt
     
   job2: #first job ID
     name: JOB2 #name of first job
@@ -47,8 +50,8 @@ jobs: #Job declaration
         run: |
           pwd
           ls -ltr
-  job3: #first job ID
-      name: JOB3 #name of first job
+  job3: #third job ID
+      name: JOB3 #name of third job
       needs: job1
       runs-on: ubuntu-22.04 #Set the machine environment to ubuntu-22.04
       steps: #declare set of commands to run sequencially
