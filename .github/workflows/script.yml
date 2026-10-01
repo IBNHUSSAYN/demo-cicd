@@ -1,0 +1,28 @@
+name: LEARNING GITHUB ACTION
+  on: push
+  jobs:
+    job1:
+      name: run-script
+      runs-on: ubuntu-latest
+      steps:
+        - name: Echo greeting
+        - run: echo "Good Morning DevOps Engineers"
+
+        - name: Run multiple commands 
+        - run: |
+              echo "Hello famx"
+              echo "I'm DevOps Engineer"
+    
+
+    job2: 
+      name: Testing script workflow
+      needs: job1
+      runs-on: windows-latest
+      steps:
+        - name: system information checks
+        - run: |
+              uname -s
+              uname -a 
+              uname -n
+              hostname
+
