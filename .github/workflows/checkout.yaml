@@ -1,0 +1,17 @@
+name: TESTING CHECKOUT
+on: push
+jobs:
+  job1:
+    name: Checkout
+    runs-on: ubuntu-22.04
+    steps:
+      - name: first steps
+        run: echo "Good Evening DevOps"
+      - name: Demo checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          run: |
+            pwd
+            $(date)
+            
