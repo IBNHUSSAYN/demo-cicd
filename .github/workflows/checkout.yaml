@@ -1,20 +1,20 @@
-name: TESTING CHECKOUT
-on: push
-jobs:
-  job1:
-    name: Checkout
-    runs-on: ubuntu-22.04
-    steps:
-      - name: step 1
-        run: |
+name: TESTING CHECKOUT #set name for the workflow
+on: push #set the trigger to push
+jobs: #Job declaration
+  job1: #first job ID
+    name: Checkout #name of first job
+    runs-on: ubuntu-22.04 #Set the machine environment to ubuntu-22.04
+    steps: #declare set of commands to run sequencially
+      - name: step 1 #name of first step 
+        run: | #commands to run in step one
           echo "Good Evening DevOps"
-          pwd
+          pwd 
           hostname
           ls -la
-      - name: step 2
-        uses: actions/checkout@v5
-      - name: Step 3 
-        run: |
+      - name: step 2 #name of second step
+        uses: actions/checkout@v5 #uses checkout to pull necessary file from working repository
+      - name: Step 3  #name of third step
+        run: | #command to run in step three
           pwd
           hostname
           ls -la
