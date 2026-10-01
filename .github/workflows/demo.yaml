@@ -1,5 +1,5 @@
 name: TESTING DEPLOYMENT
-on: push
+on: workflow_dispatch
 jobs:
   job1:
     name: Software to deployment stage
