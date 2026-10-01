@@ -22,11 +22,28 @@ jobs: #Job declaration
       - name: step 4
         uses: actions/upload-artifact@v7
         with:
-          name: single file
+          name: single_file
           path: ./test.txt
       - name: step 5
         uses: actions/upload-artifact@v7
         with:
           name: Directory_artifact
           path: demo/
-          
+    
+  job2: #first job ID
+    name: JOB2 #name of first job
+    runs-on: ubuntu-22.04 #Set the machine environment to ubuntu-22.04
+    steps: #declare set of commands to run sequencially
+      - name: checking current directory
+        run: |
+          pwd
+          ip -a
+          command -v docker
+      - name: downloading artifacts
+        uses: actions/download-artifact@v7
+        with:
+          name: single_file
+      - name: checking current directory to confirm the existing of single_file
+        run: |
+          pwd
+          ls -ltr
