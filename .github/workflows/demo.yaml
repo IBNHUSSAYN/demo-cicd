@@ -4,6 +4,8 @@ on:
     branches: 
       - test #the trigger take place only in test branch
       - dev
+      - main
+    
 jobs:
   job1:
     name: Software to deployment stage
