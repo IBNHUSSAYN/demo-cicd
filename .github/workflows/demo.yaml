@@ -1,9 +1,27 @@
 name: TESTING DEPLOYMENT
-on: workflow_dispatch
+on: 
+  push:
+    branches: 
+      - test #the trigger take place only in test branch
+      -  'dev-*'
+    
 jobs:
   job1:
     name: Software to deployment stage
     runs-on: ubuntu-22.04
     steps:
-        - name: Stage 1
+        - name: Stage_1
           run: echo "Good Morning"
+        - name: stage_2
+          run: |
+            touch file.txt
+            echo "Today's date is $(date +%F)" >> file.txt
+            echo "I am going to the School" >> file1.txt
+        - name: uploading_artifacts
+          uses: actions/upload_artifacts@v7
+          with:
+            name: single_file
+            path: |
+                file.txt
+                file1.txt
+                
