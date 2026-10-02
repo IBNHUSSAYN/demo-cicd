@@ -36,6 +36,7 @@ jobs: #Job declaration
           path: |
             demo/list.txt
             demo/hubby.txt
+            demo/date.txt
     
   job2: #first job ID
     name: JOB2 #name of first job
