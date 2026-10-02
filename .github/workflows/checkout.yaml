@@ -1,5 +1,5 @@
 name: TESTING CHECKOUT #set name for the workflow
-on: push #set the trigger to push
+on: workflow_dispatch #set the trigger to push
 jobs: #Job declaration
   job1: #first job ID
     name: JOB1 #name of first job
