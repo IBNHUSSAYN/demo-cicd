@@ -15,7 +15,7 @@ jobs: #Job declaration
         uses: actions/checkout@v5 #uses checkout to pull necessary file from working repository
       - name: Step 3  #name of third step
         run: | #command to run in step three
-          mkdir demo
+          mkdir demo #create directory demo
           pwd >> demo/test.txt #redirecting output into a file test.txt for uploading
           hostname >> test.txt
           echo "I am a mathematician, i love coding" >> demo/hubby.txt
@@ -23,17 +23,17 @@ jobs: #Job declaration
           echo "today's date is $(date +%F)" >> demo/date.txt
           echo "Let's make it right again" >> motivate.txt
       - name: step 4
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7 #uploading files which are'nt in the directory
         with:
-          name: single_file
-          path: |
+          name: single_file #name given to all the files which are'nt in the directory
+          path: | #declaring path for the files
             ./test.txt
             ./motivate.txt
       - name: step 5
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7 #uploading files which are in the directory named demo
         with:
-          name: Directory_artifact
-          path: |
+          name: Directory_artifact #name given to all files in the directory named demo
+          path: | #declare paths of the files in the directory demo
             demo/list.txt
             demo/hubby.txt
             demo/date.txt
@@ -47,10 +47,10 @@ jobs: #Job declaration
         run: |
           pwd
           ls -ltr
-      - name: downloading single file artifacts
+      - name: downloading single file artifacts #downloading files which are'nt in the directory
         uses: actions/download-artifact@v7
         with:
-          name: single_file
+          name: single_file #called the name single_file declare in job1
       - name: checking current directory to confirm the existing of single_file
         run: |
           pwd
@@ -67,7 +67,7 @@ jobs: #Job declaration
         - name: downloading directory artifacts
           uses: actions/download-artifact@v7
           with:
-            name: Directory_artifact
+            name: Directory_artifact #called the name Directory_artifact declare in job1
         - name: checking current directory to confirm the existing of downloaded directory artifacts
           run: |
             pwd
