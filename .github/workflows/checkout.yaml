@@ -72,3 +72,4 @@ jobs: #Job declaration
           run: |
             pwd
             ls -ltr
+            cat date.txt
