@@ -2,7 +2,7 @@ name: TESTING CHECKOUT #set name for the workflow
 on: push #set the trigger to push
 jobs: #Job declaration
   job1: #first job ID
-    name: Checkout #name of first job
+    name: JOB1 #name of first job
     runs-on: ubuntu-22.04 #Set the machine environment to ubuntu-22.04
     steps: #declare set of commands to run sequencially
       - name: step 1 #name of first step 
@@ -20,11 +20,15 @@ jobs: #Job declaration
           hostname >> test.txt
           echo "I am a mathematician, i love coding" >> demo/hubby.txt
           ls -la >> demo/list.txt
+          echo "today's date is $(date +%F)" >> demo/date.txt
+          echo "Let's make it right again" >> motivate.txt
       - name: step 4
         uses: actions/upload-artifact@v7
         with:
           name: single_file
-          path: ./test.txt
+          path: |
+            ./test.txt
+            ./motivate.txt
       - name: step 5
         uses: actions/upload-artifact@v7
         with:
