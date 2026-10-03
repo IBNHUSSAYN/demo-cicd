@@ -11,6 +11,9 @@ on:
   workflow_dispatch:
   
     
+on:
+  pull_request:
+    branches: [main]
 jobs:
   job1:
     name: Software to deployment stage
@@ -29,5 +32,13 @@ jobs:
             name: single_file
             path: |
                 file.txt
-                file1.txt
-                
+                file1.txt 
+  job2:
+    name: testing
+    runs-on: ububuntu-22.04
+    steps:
+      - name: new
+        run: |
+          echo "Good Morning DevOps"
+          pwd
+          
