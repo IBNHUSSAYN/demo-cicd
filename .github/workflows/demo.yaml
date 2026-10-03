@@ -28,7 +28,7 @@ jobs:
                 file1.txt 
   job2:
     name: testing
-    runs-on: ububuntu-22.04
+    runs-on: ububuntu-latest
     steps:
       - name: new
         run: |
