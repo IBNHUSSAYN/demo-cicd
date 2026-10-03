@@ -1,19 +1,12 @@
 name: TESTING DEPLOYMENT
-on: 
+on:
   push:
-    branches: 
-      - test #the trigger take place only in test branch
-      - dev
+    branches:
       - main
   pull_request:
     branches:
       - main
-  workflow_dispatch:
   
-    
-on:
-  pull_request:
-    branches: [main]
 jobs:
   job1:
     name: Software to deployment stage
