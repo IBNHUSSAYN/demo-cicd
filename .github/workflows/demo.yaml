@@ -24,7 +24,7 @@ jobs:
             echo "Today's date is $(date +%F)" >> file.txt
             echo "I am going to the School" >> file1.txt
         - name: uploading_artifacts
-          uses: actions/upload-artifact@v5
+          uses: actions/upload-artifact@v7
           with:
             name: single_file
             path: |
