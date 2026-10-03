@@ -28,10 +28,18 @@ jobs:
                 file1.txt 
   job2:
     name: testing
-    runs-on: ububuntu-22.04
+    runs-on: ububuntu-latest
     steps:
       - name: new
         run: |
           echo "Good Morning DevOps"
           pwd
-          
+          hostname
+  job3:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v7
+        
+        
