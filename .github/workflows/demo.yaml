@@ -1,9 +1,8 @@
 name: TESTING DEPLOYMENT
 on: 
   pull_request: 
-    branches: [main]
-    
-    
+    branches: 
+      - main
 jobs:
   job1:
     name: Software to deployment stage
