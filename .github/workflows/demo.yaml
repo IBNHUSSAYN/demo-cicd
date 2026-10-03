@@ -34,6 +34,7 @@ jobs:
         run: |
           echo "Good Morning DevOps"
           pwd
+          hostname
   job3:
     name: deploy
     runs-on: ubuntu-latest
