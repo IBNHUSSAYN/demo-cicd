@@ -1,8 +1,7 @@
 name: TESTING DEPLOYMENT
 on: 
-  push:
-    branches: 
-      - '**' #the trigger take place only in test branch
+  pull_request: 
+    branches: [main]
     
     
 jobs:
