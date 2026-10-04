@@ -43,9 +43,8 @@ jobs:
       - name: download (step 2)
         uses: actions/download-artifact@v7
         with:
-          name: |
-            Single_file
-            Directory_file
+          name: Single_file
+        
       - name: Verify_files (step 3)
         run: |
           ls
