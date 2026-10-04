@@ -51,5 +51,6 @@ jobs:
       - name: Verify_files (step 4)
         run: |
           ls
+          pwd
           echo "done"
           echo "Master plan"
