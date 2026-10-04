@@ -6,7 +6,7 @@ on:
   pull_request:
     branches:
       - main
-var:
+env:
   APP_NAME: Application
   APP_VERSION: 1.0
 jobs:
