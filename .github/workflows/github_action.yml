@@ -17,6 +17,8 @@ jobs:
       - name: build
         run: |
           mkdir demo
+          echo "Username: ${{ secrets.USERNAME }}"
+          echo "Password: ${{ secrets.PASSWORD }}"
           echo "APP_NAME: $APP_NAME" #reference and print the app name 
           echo "APP_VERSION: $APP_VERSION" #reference and print app version
           echo "Good morning DevOps Engineer!" >> greet.txt
