@@ -43,8 +43,8 @@ jobs:
       - name: download (step 2a)
         uses: actions/download-artifact@v7
         with:
-          name: Single_file (step 2b)
-      - name: downlpad Directory file 
+          name: Single_file 
+      - name: downlpad Directory file (step 2b) 
         uses: actions/download-artifact@v7
         with:
           name: Directory_file
