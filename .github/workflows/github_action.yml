@@ -27,7 +27,7 @@ jobs:
             greet.txt
             demo.txt
       - name: directory_file_uploading
-        uses: actions/upload-artifact@7
+        uses: actions/upload-artifact@v7
         with:
           name: Directory_file
           path: |
@@ -40,15 +40,24 @@ jobs:
       - name: length_file (step 1)
         run: |
           ls 
-      - name: download (step 2)
+      - name: download (step 2a)
         uses: actions/download-artifact@v7
         with:
+<<<<<<< HEAD
           name: Single_file
       - name: download (step 3)
         uses: actions/download-artifact@v7
         with:
           name:  Directory_file
       - name: Verify_files (step 4)
+=======
+          name: Single_file 
+      - name: downlpad Directory file (step 2b) 
+        uses: actions/download-artifact@v7
+        with:
+          name: Directory_file
+      - name: Verify_files (step 3)
+>>>>>>> dd63e47c309db43d61bbb86b8d2e41ed3d8c8a43
         run: |
           ls
           pwd
