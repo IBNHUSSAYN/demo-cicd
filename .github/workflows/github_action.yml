@@ -44,8 +44,8 @@ jobs:
         uses: actions/download-artifact@v7
         with:
           name: | 
-             - Single_file
-             - Directory_file 
+             Single_file
+             Directory_file 
         
       - name: Verify_files (step 3)
         run: |
