@@ -34,7 +34,7 @@ jobs:
             demo/
   job2:
     name: downloading
-    needs: uploading
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: length_file (step 1)
