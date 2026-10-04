@@ -1,0 +1,51 @@
+name: GITHUB ACTION WORKFLOWS
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  job1:
+    name: uploading
+    runs_on: ubuntu-latest
+    steps:
+      - name: build
+        run: |
+          mkdir demo
+          echo "Good morning DevOps Engineer!" >> greet.txt
+          echo "i'm a Devops Engineer" >> demo/profile.txt
+          echo "Hi! Good Evening Peers" >> greet.txt
+          echo "i'm single and searching" >> demo/profile.txt
+          echo "Have a nice day" >> demo.txt
+      - name: Single_file_uploading
+        uses: actions/upload-artifact@v7
+        with:
+          name: Single_file 
+          path: |
+            greet.txt
+            demo.txt
+      - name: directory_file_uploading
+        uses: actions/upload-artifact@7
+        with:
+          name: Directory_file
+          path: |
+            demo/
+  job2:
+    name: downloading
+    needs: uploading
+    runs_on: ubuntu-latest
+    steps:
+      - name: length_file (step 1)
+        run: |
+          ls 
+      - name: download (step 2)
+        uses: actions/download-artifact@v7
+        with:
+          name: |
+            Single_file
+            Directory_file
+      - name: Verify_files (step 3)
+        run: |
+          ls
