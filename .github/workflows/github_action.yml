@@ -40,13 +40,14 @@ jobs:
       - name: length_file (step 1)
         run: |
           ls 
-      - name: download (step 2)
+      - name: download (step 2a)
         uses: actions/download-artifact@v7
         with:
-          name: | 
-             Single_file
-             Directory_file 
-        
+          name: Single_file (step 2b)
+      - name: downlpad Directory file 
+        uses: actions/download-artifact@v7
+        with:
+          name: Directory_file
       - name: Verify_files (step 3)
         run: |
           ls
