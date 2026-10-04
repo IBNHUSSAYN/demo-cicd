@@ -49,3 +49,4 @@ jobs:
       - name: Verify_files (step 3)
         run: |
           ls
+          echo "done"
