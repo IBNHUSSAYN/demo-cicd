@@ -50,3 +50,4 @@ jobs:
         run: |
           ls
           echo "done"
+          echo "Master plan"
