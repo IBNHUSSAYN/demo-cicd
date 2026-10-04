@@ -34,7 +34,7 @@ jobs:
             demo/
   job2:
     name: downloading
-    needs: uploading
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: length_file (step 1)
@@ -43,10 +43,12 @@ jobs:
       - name: download (step 2)
         uses: actions/download-artifact@v7
         with:
-          name: |
-            Single_file
-            Directory_file
-      - name: Verify_files (step 3)
+          name: Single_file
+      - name: download (step 3)
+        uses: actions/download-artifact@v7
+        with:
+          name:  Directory_file
+      - name: Verify_files (step 4)
         run: |
           ls
           echo "done"
