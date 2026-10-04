@@ -9,7 +9,7 @@ on:
 jobs:
   job1:
     name: uploading
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: build
         run: |
@@ -35,7 +35,7 @@ jobs:
   job2:
     name: downloading
     needs: uploading
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: length_file (step 1)
         run: |
