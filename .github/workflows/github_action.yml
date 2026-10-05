@@ -80,7 +80,7 @@ jobs:
         run: |
           echo "[INFO] Password for User ${{ vars.USERNAME }} is ${{ secrets.PASSWORD}}"
           echo "[INFO] the Database key is ${{ vars.DATABASE_KEY }}"
-        environments:
+        environment:
           name: Deployment
 
   production:
@@ -93,5 +93,5 @@ jobs:
         run: |
             echo "[INFO] Password for User ${{ vars.USER }} is ${{ secrets.PASSWORD}}"
             echo "[INFO] USER ${{ vars.USER }}" Host the website with ${{ vars.HOST}}
-        environments:
+        environment:
           name: PRODUCTION
