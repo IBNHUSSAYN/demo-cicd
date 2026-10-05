@@ -60,4 +60,38 @@ jobs:
           ls
           pwd
           echo "done"
-          echo "Master plan"
+  job3:
+    name: Context Variables
+    runs-on: ubuntu-latest
+    steps:
+      - name: Referencing Context Variables
+        run: |
+            echo "[INFO] Triggered by ${{ github.event_name }}"
+            echo "[INFO] New changes were added by ${{ github.actor }} in ${{ github.ref_name }} branch"
+            echo "[INFO] Current step by ${{ runner.os }}"
+            echo "[INFO] Current JOB ID is ${{ job.check_run_id }}"
+  deployment:
+    name: Deploying Application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Refering Enviroments Variables
+        run: echo "[INFO] Application is running on ${{ vars.HOST }} by User ${{ vars.USER}}"
+      - name: Refering Enviroments Secrets 
+        run: |
+          echo "[INFO] Password for User ${{ vars.USERNAME }} is ${{ secrets.PASSWORD}}"
+          echo "[INFO] the Database key is ${{ vars.DATABASE_KEY }}"
+        environments:
+          name: Deployment
+
+  production:
+    name: Production Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Refering Enviroments Variables
+        run: echo "[INFO] Application is running on ${{ vars.HOST }} by User ${{ vars.USER}}"
+      - name: Refering Enviroments Secrets 
+        run: |
+            echo "[INFO] Password for User ${{ vars.USER }} is ${{ secrets.PASSWORD}}"
+            echo "[INFO] USER ${{ vars.USER }}" Host the website with ${{ vars.HOST}}
+        environments:
+          name: PRODUCTION
