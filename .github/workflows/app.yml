@@ -8,6 +8,11 @@ jobs:
     steps:
       - name: Checkout Application code
         uses: actions/checkout@v7
+      - name: verify files
+        run: | 
+          pwd
+          ls -al
+          ls
       - name: set-up python
         uses: actions/setup-python@v7
       - name: Install dependencies
