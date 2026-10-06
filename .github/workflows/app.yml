@@ -4,7 +4,7 @@ on:
 jobs:
   unit-test:
     name: Running unit test
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Application code
         uses: actions/checkout@v7
