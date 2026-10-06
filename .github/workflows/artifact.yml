@@ -1,0 +1,66 @@
+name: PRODUCTION PIPE LINE
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    branches:
+      - main
+env:
+  APP_NAME: Muslimunah
+  APP_VERSION: 1.1.0
+jobs:
+  production:
+    name: Application_Production_Artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: File_contents
+        run: |
+          mkdir app/
+          echo "Good morning Developer peers" >> sample.txt
+          echo "print("Hello World")" >> app/file.txt
+          echo "function name is myapp" >> app/file.txt
+          echo "Good evening DevOps Engineer!" >> sample.txt
+      - name: Application_Details
+        run: |
+          echo "Application Name: $APP_NAME"
+          echo "Application Version: $APP_VERSION"
+      - name: checkout_file
+        uses: actions/checkout@v7 
+        run: |
+          pwd
+          ls -al
+      - name: file_uploading
+        uses: actions/upload-artifact@v7
+        with:
+          name: single_file
+          path: sample.txt
+      - name: dir_uploading
+        uses: actions/upload-artifact@v7
+        with:
+          name: dir_file
+          path: app/file.txt
+  deployment:
+    name: Deploy_Application_Arifacts
+    needs: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkup
+        run: |
+          pwd 
+          ls -la
+      - name: download_single_file
+        uses: actions/download-artifact@v7
+        with:
+          name: sample.txt
+      - name: download_dir_file
+        uses: actions/download-artifact@v7
+        with:
+          name: dir_file
+      - name: verification
+        run: |
+          pwd
+          ls -l
