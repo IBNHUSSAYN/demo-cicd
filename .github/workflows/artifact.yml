@@ -54,7 +54,7 @@ jobs:
       - name: download_single_file
         uses: actions/download-artifact@v7
         with:
-          name: sample.txt
+          name: single_file
       - name: download_dir_file
         uses: actions/download-artifact@v7
         with:
