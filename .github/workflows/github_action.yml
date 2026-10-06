@@ -1,66 +1,66 @@
 name: GITHUB ACTION WORKFLOWS
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-env:
-  APP_NAME: Application
-  APP_VERSION: 1.0
-jobs:
-  job1:
-    name: uploading
-    runs-on: ubuntu-latest
-    steps:
-      - name: build
-        run: |
-          mkdir demo
-          echo "Username: ${{ secrets.USERNAME }}"
-          echo "Password: ${{ secrets.PASSWORD }}"
+#on: #Whenever a changes is to main, any of the trigger activate
+ # push:
+  #  branches:
+   #   - main
+  #pull_request:
+  #  branches:
+   #   - main
+env: #declaring variriable keyword
+  APP_NAME: Application #declare the variable APP_NAME
+  APP_VERSION: 1.0 #declare the variable APP_VERSION
+jobs: #the job keyword
+  job1: #declare the first job
+    name: uploading #name of first job
+    runs-on: ubuntu-latest #the os the job runs on
+    steps: #steps on how the job execute
+      - name: build #first step name
+        run: | #the run keyword used for running Linux/Bash command
+          mkdir demo #create a directory demo
+          echo "Username: ${{ secrets.USERNAME }}" #referencing the secret variable USERNAME 
+          echo "Password: ${{ secrets.PASSWORD }}" #referencing the secret variable PASSWORD
           echo "APP_NAME: $APP_NAME" #reference and print the app name 
           echo "APP_VERSION: $APP_VERSION" #reference and print app version
-          echo "Good morning DevOps Engineer!" >> greet.txt
-          echo "i'm a Devops Engineer" >> demo/profile.txt
+          echo "Good morning DevOps Engineer!" >> greet.txt #echo text and redirect it into a file
+          echo "i'm a Devops Engineer" >> demo/profile.txt #echo text and redirect it into file in directory demo 
           echo "Hi! Good Evening Peers" >> greet.txt
           echo "i'm single and searching" >> demo/profile.txt
           echo "Have a nice day" >> demo.txt
-      - name: Single_file_uploading
-        uses: actions/upload-artifact@v7
+      - name: Single_file_uploading #name for second step
+        uses: actions/upload-artifact@v7 #to upload artifacts into job runner
         with:
-          name: Single_file 
-          path: |
+          name: Single_file #name of the files upload 
+          path: | #reference the path of the files to upload
             greet.txt
             demo.txt
-      - name: directory_file_uploading
-        uses: actions/upload-artifact@v7
+      - name: directory_file_uploading #name for third step
+        uses: actions/upload-artifact@v7 #upload artifacts into job runner
         with:
-          name: Directory_file
-          path: |
-            demo/
+          name: Directory_file #name for the directory file upload
+          path: | #reference the path of the file to upload in the directory
+            demo/profile.txt
   job2:
-    name: downloading
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - name: length_file (step 1)
-        run: |
+    name: downloading #name of the second job
+    needs: job1 #condition for job 2 to run only when job1 execute successfully
+    runs-on: ubuntu-latest #set the OS for the runner
+    steps: #steps of job2
+      - name: length_file (step 1) #name for step one
+        run: | 
           ls 
-      - name: download (step 2)
-        uses: actions/download-artifact@v7
+      - name: download (step 2) #name fir step two
+        uses: actions/download-artifact@v7 #download artifacts uploaded in job1
         with:
-          name: Single_file
+          name: Single_file #referenced the name of the file uploaded in job1 
       - name: download (step 3)
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v7 #download artifacts uploaded in job1
         with:
-          name:  Directory_file
+          name:  Directory_file #referenced the name of the file uploaded in job1
       - name: Verify_files (step 3)
         run: |
           ls
           pwd
           echo "done"
-  job3:
+  job3: #declare job3 
     name: Context Variables
     runs-on: ubuntu-latest
     steps:
