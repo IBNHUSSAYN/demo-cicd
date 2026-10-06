@@ -1,14 +1,14 @@
 name: PRODUCTION PIPE LINE
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
-    branches:
-      - main
+#on:
+  #push:
+   # branches:
+    #  - main 
+  #pull_request:
+   # branches:
+    #  - main
+  #workflow_dispatch:
+  #  branches:
+   #   - main
 env:
   APP_NAME: Muslimunah
   APP_VERSION: 1.1.0
