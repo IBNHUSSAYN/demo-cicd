@@ -28,8 +28,7 @@ jobs:
         run: |
           echo "Application Name: $APP_NAME"
           echo "Application Version: $APP_VERSION"
-      - name: checkout_file
-        uses: actions/checkout@v7 
+      - name: checkup
         run: |
           pwd
           ls -al
