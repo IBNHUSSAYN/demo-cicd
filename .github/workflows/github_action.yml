@@ -3,9 +3,11 @@ on: #Whenever a changes is to main, any of the trigger activate
  push:
     branches:
       - main
+      - dev
  pull_request:
     branches:
       - main
+      - dev
 
 jobs:
   ci_pipeline:
