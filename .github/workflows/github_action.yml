@@ -14,4 +14,4 @@ jobs:
       uses: IBNHUSSAYN/workspace/.github/workflows/reusable.yml@main
       secrets: 
           USERNAME: ${{ secrets.USERNAME }}
-          PASSWARD: ${{ secrets.PASSWORD }}
+          PASSWORD: ${{ secrets.PASSWORD }}
