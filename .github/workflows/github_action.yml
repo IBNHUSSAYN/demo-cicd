@@ -3,7 +3,7 @@ on: #Whenever a changes is to main, any of the trigger activate
  push:
     branches:
       - main
-      - dev
+      
  pull_request:
     branches:
       - main
@@ -11,6 +11,7 @@ on: #Whenever a changes is to main, any of the trigger activate
 
 jobs:
   ci_pipeline:
+      #Reference the the workflow of containing the below secrets 
       uses: IBNHUSSAYN/workspace/.github/workflows/reusable.yml@main
       secrets: 
           USERNAME: ${{ secrets.USERNAME }}
