@@ -12,7 +12,7 @@ on:
 jobs:
   job1:
     name: job1
-    runs-on: demo10
+    runs-on: self-hosted
     steps:
       - name: Run Bash Script
         run: echo "Goodevening"
