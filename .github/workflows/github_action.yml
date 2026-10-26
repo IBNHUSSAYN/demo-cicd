@@ -1,7 +1,6 @@
 name: GITHUB ACTION WORKFLOWS
 on: #Whenever a changes is to main, any of the trigger activate
     workflow_dispatch:
-      
  pull_request:
     branches:
       - main
