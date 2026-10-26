@@ -1,11 +1,5 @@
 name: GITHUB ACTION WORKFLOWS
-on: #Whenever a changes is to main, any of the trigger activate
-    workflow_dispatch:
- pull_request:
-    branches:
-      - main
-      - dev
-
+on: workflow_dispatch
 jobs:
   ci_pipeline:
       #Reference the the workflow of containing the below secrets 
