@@ -12,7 +12,7 @@ on:
 jobs:
   job1:
     name: job1
-    runs-on: ubuntu-latest
+    runs-on: demo10
     steps:
       - name: Run Bash Script
         run: echo "Goodevening"
@@ -21,10 +21,10 @@ jobs:
       - name: create file
         run: |
           mkdir myfolder
-          sleep 10
+          
   job2:
     name: job2
-    runs-on: ubuntu-latest
+    runs-on: demo10
     steps:
       - name: Greeting message
         run: echo "Here's my first Actions"
